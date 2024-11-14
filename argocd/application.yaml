@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: first_application
+  name: firstapplication
   namespace: argocd 
 spec:
   project: default  # The Argo CD project that this app belongs to
