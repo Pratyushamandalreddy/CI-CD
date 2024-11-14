@@ -7,7 +7,7 @@ spec:
   project: default  # The Argo CD project that this app belongs to
   source:
     repoURL: 'https://github.com/Pratyushamandalreddy/CI-CD.git'  # Git repo URL where the application YAMLs or Helm charts are stored
-    targetRevision: HEAD  # The branch, tag, or commit ID to use (can be `master`, `main`, or a specific commit hash)
+    targetRevision: test  # The branch, tag, or commit ID to use (can be `master`, `main`, or a specific commit hash)
     path: 'path/to/your/application/manifests'  # Path to the Kubernetes manifests within the repo (relative to the root of the repo)
   destination:
     server: 'https://kubernetes.default.svc'  # URL of the cluster where the app should be deployed (default is the in-cluster URL)
