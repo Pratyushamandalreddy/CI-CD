@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=false
+  name: pruneapplication
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: pruneapplication
+  template:
+    metadata:
+      labels:
+        app: pruneapplication
+    spec:
+      containers:
+      - image: nginx:latest
+        name: prune-app
