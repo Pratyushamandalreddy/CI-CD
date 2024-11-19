@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pruneapplication
+  namespace: argocd 
+spec:
+  project: default  # The Argo CD project that this app belongs to
+  source:
+    repoURL: 'https://github.com/Pratyushamandalreddy/CI-CD.git'  # Git repo URL where the application YAMLs or Helm charts are stored
+    targetRevision: test  # The branch, tag, or commit ID to use (can be `master`, `main`, or a specific commit hash)
+    path: 'argocd'  # Path to the Kubernetes manifests within the repo (relative to the root of the repo)
+  destination:
+    server: 'https://kubernetes.default.svc'  # URL of the cluster where the app should be deployed (default is the in-cluster URL)
+    namespace: 'default'  # The namespace in the target cluster to deploy the app
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+
